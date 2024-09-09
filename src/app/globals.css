@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .info {
+    @apply flex items-center justify-start py-1 px-[10px] rounded-lg drop-shadow-lg bg-white gap-[10px]
+  }
+
+  .info_title {
+    @apply text-xs font-semibold
+  }
+
+  .info_icon {
+    @apply text-xl w-[20%] text-center
+  }
+
+
+}
