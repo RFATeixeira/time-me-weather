@@ -1,5 +1,7 @@
 "use client"
-import React, { use, useEffect } from 'react';
+import React, { useEffect } from 'react';
+
+import Image from 'next/image';
 
 export function Card() {
   useEffect(() => {
@@ -59,7 +61,19 @@ export function Card() {
     }
   }, []);
 
-  function showInfo(json: any): void {
+  interface infoShow {
+    country: string;
+    temp: number;
+    city: string;
+    description: string;
+    tempMax: number;
+    tempMin: number;
+    humidity: number;
+    windSpeed: number;
+    tempIcon: string;
+  }
+
+  function showInfo(json: infoShow): void {
     showAlert('');
 
     const weatherElement = document.querySelector<HTMLElement>("#weather");
@@ -157,7 +171,7 @@ export function Card() {
           <h1 id="title" className="text-center font-semibold mb-[5px] text-[#372f3f] text-3xl">Umuarama, PR</h1>
           <div id="infos">
             <div id="temp" className="flex items-center justify-around gap-[20px] bg-gradient-to-r from-indigo-500 to-indigo-700 text-white rounded-[20px] p-[20px]">
-              <img id="temp_img" className="drop-shadow-md" src="http://openweathermap.org/img/wn/04d@2x.png" alt="Imagem de temperatura"/>
+              <Image src="http://openweathermap.org/img/wn/04d@2x.png" alt="Imagem de temperatura" id="temp_img" className="drop-shadow-md" width={100} height={100}/>
               <div>
                 <p id="temp_value" className="font-bold text-[50px] leading-[55px]">
                   32 <sup>Cº</sup>
